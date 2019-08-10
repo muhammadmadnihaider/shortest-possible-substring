@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let ar = "abadcabgah";
+      // function that takes string and lenght
+      function subString(ar, length) {
+        let uniq = ar
+          .split("")
+          .filter((num, index, ar) => ar.indexOf(num) === index);
+        let wind;
+        for (let i = uniq.length; i <= ar.length; i++) {
+          for (j = 0; i + j <= ar.length; j++) {
+            wind = ar.slice(j, i + j);
+            if (
+              uniq
+                .map(char => wind.includes(char))
+                .reduce((pre, current) => pre && current)
+            ) {
+              return wind;
+            }
+          }
+        }
+      }
+      // returns shortest possible string that contains all the characters
+      let wind = subString(ar, ar.length);
+      console.log(wind, "final answer");
+    </script>
+  </body>
+</html>

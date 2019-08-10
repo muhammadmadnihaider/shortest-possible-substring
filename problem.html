@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var str = "abbasda";
+      console.log(str);
+
+      function strUnique(array, length) {
+        var uniChar = array.filter(
+          (char, index, ar) => ar.indexOf(char) === index
+        );
+        console.log(uniChar, "unique element array");
+        let word = array.slice(0, uniChar.length);
+        console.log(word, "slice of actual string");
+        for (let i = 1, j = 1; true; i++, j++) {
+          console.log(word, "every slice on loop");
+
+          if (
+            uniChar
+              .map(char => {
+                if (word.join("").includes(char)) {
+                  return true;
+                }
+              })
+              .reduce((pre, current) => pre && current)
+          ) {
+            console.log(word, "word true");
+            return word;
+          } else {
+            console.log(word, "word else");
+            console.log(word, word[word.length - 1], "word, last element");
+            console.log(array, array[array.length - 1], "array, last element");
+
+            if ((length + i) < ) {
+              word = array.slice(i, length + i);
+              console.log(word, "word new shifting");
+            } else {
+              word = array.slice(0, uniChar.length + j);
+              console.log(word, "word new shifting, else");
+            }
+          }
+        }
+      }
+      let sub = strUnique(str.split(""), str.length);
+      console.log(sub);
+    </script>
+  </body>
+</html>

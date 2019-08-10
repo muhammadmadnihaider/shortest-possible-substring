@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function cal(oper, num1, num2) {
+        if (oper === "+") {
+          return function() {
+            return num1 + num2;
+          };
+        } else if (oper === "-") {
+          return function() {
+            return num1 - num2;
+          };
+        } else if (oper === "*") {
+          return function() {
+            return num1 * num2;
+          };
+        } else if (oper === "/") {
+          return function() {
+            return num1 / num2;
+          };
+        }
+      }
+
+      var result1 = cal("+", 5, 4)();
+      var result2 = cal("-", 5, 4)();
+      var result3 = cal("*", 5, 4)();
+      var result4 = cal("/", 20, 4)();
+      console.log(result1, result2, result3, result4);
+    </script>
+  </body>
+</html>
